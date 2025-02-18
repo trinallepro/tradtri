@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Traducteur Trinalien-Français</title>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            border-bottom: 2px solid #edf2f7;
+            margin-bottom: 30px;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: 500;
+            color: #718096;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #4299e1;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .tab.active {
+            color: #4299e1;
+        }
+
+        .tab.active::after {
+            transform: scaleX(1);
+        }
+
+        .direction-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .direction-btn {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #4299e1;
+            background: none;
+            cursor: pointer;
+            border-radius: 10px;
+            font-weight: 500;
+            color: #4299e1;
+        }
+
+        .direction-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(66, 153, 225, 0.2);
+        }
+
+        .direction-btn.active {
+            background-color: #4299e1;
+            color: white;
+            animation: pulse 0.3s ease-in-out;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            resize: vertical;
+            margin-bottom: 20px;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #4299e1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+        }
+
+        .translate-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #4299e1;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transform-origin: center;
+        }
+
+        .translate-btn:hover {
+            background-color: #3182ce;
+            transform: scale(1.02);
+        }
+
+        .translate-btn:active {
+            transform: scale(0.98);
+        }
+
+        .result {
+            padding: 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            background-color: #f8fafc;
+            margin-top: 30px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .example {
+            padding: 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .example:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .label {
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 5px;
+        }
+
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            .direction-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Rest of the HTML content remains the same as in your original code -->
+<div class="container">
+    <h1>Traducteur Trinalien-Français</h1>
+
+    <div class="tab-container">
+        <div class="tabs">
+            <button class="tab active" data-tab="translator">Traducteur</button>
+            <button class="tab" data-tab="examples">Exemples</button>
+        </div>
+
+        <div id="translator" class="tab-content active">
+            <div class="direction-buttons">
+                <button class="direction-btn active" data-direction="trinalian-to-french">
+                    Trinalien → Français
+                </button>
+                <button class="direction-btn" data-direction="french-to-trinalian">
+                    Français → Trinalien
+                </button>
+            </div>
+
+            <div class="input-container">
+                <textarea id="input-text" placeholder="Entrez votre texte ici..."></textarea>
+                <button class="translate-btn" id="translate-btn">Traduire</button>
+            </div>
+
+            <div id="translation-result" class="result" style="display: none;">
+                <p class="label">Traduction :</p>
+                <p id="translation-text"></p>
+            </div>
+        </div>
+
+        <div id="examples" class="tab-content">
+            <div class="example">
+                <p class="label">Trinalien :</p>
+                <p>Aelera! Gran do una bloca.</p>
+                <p class="label">Français :</p>
+                <p>Bonjour ! L'adulte fait un bloc.</p>
+            </div>
+            <div class="example">
+                <p class="label">Trinalien :</p>
+                <p>Mino lava fi en domo.</p>
+                <p class="label">Français :</p>
+                <p>L'enfant lave la feuille dans la maison.</p>
+            </div>
+            <div class="example">
+                <p class="label">Trinalien :</p>
+                <p>Bipo venio in la rivi.</p>
+                <p class="label">Français :</p>
+                <p>Le bateau vient dans la rivière.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Your existing JavaScript code remains the same
+    const dictionary = {
+        // A
+        a: "avoir",
+        aelera: "bonjour",
+        ani: "ancêtre",
+        anine: "agenda",
+        ario: "avion",
+        apto: "apprendre",
+        asire: "accepter",
+        atoro: "après",
+        anilo: "animal",
+        amo: "amour",
+        apne: "arriver",
+        actio: "action",
+        // B
+        ben: "beau/belle",
+        beno: "bon",
+        bere: "blanc/blanche",
+        bino: "bleu",
+        bipo: "bateau",
+        birdo: "anniversaire",
+        bitome: "bouteille",
+        bue: "construire",
+        bo: "grand",
+        bore: "bois",
+        bilo: "billet",
+        bravo: "bravo",
+        brino: "briller",
+        bloco: "bloc",
+        brem: "branche",
+        // C
+        canite: "canapé",
+        care: "trousse",
+        citeran: "cuisine",
+        clan: "classeur",
+        conec: "câble",
+        conire: "coussin",
+        corvi: "corbeau",
+        courin: "cousin",
+        comio: "comment",
+        cento: "cent",
+        creo: "créer",
+        caldo: "chaud",
+        cilo: "ciel",
+        cola: "colline",
+        // D
+        de: "de",
+        domo: "maison",
+        dalo: "donner",
+        delo: "demander",
+        dire: "dire",
+        do: "faire",
+        dine: "diner",
+        dolce: "doux/douce",
+        dro: "droite",
+        drono: "dragon",
+        // E
+        e: "être",
+        emo: "hommage",
+        empiraner: "empire",
+        eno: "chocolat",
+        ere: "chef",
+        ero: "horrible",
+        enora: "enfant",
+        esto: "est",
+        etimo: "étoile",
+        espera: "espérer",
+        explo: "explosion",
+        // F
+        fay: "faire",
+        fi: "feuille",
+        fin: "froid",
+        firi: "fluo",
+        fote: "foot",
+        fram: "ami",
+        fsi: "poisson",
+        flo: "fleur",
+        forto: "fort",
+        freno: "frère",
+        femo: "femme",
+        fiere: "fier",
+        // G
+        generalose: "général",
+        genesia: "vie",
+        gi: "donner",
+        gitare: "guitare",
+        git: "gentil/gentille",
+        go: "aller",
+        gran: "adulte",
+        gelo: "gel",
+        glace: "glace",
+        gramo: "gramme",
+        greno: "grenouille",
+        giro: "tourner",
+        // H
+        haisone: "maison",
+        holo: "heure",
+        herno: "herbe",
+        hilto: "haut",
+        histo: "histoire",
+        humero: "humain",
+        // I
+        in: "dans",
+        iso: "île",
+        inno: "entrer",
+        inoce: "innocence",
+        inteno: "intention",
+        informo: "information",
+        // J
+        jeo: "jeu",
+        jero: "rouge",
+        jumpo: "sauter",
+        justo: "juste",
+        // L
+        line: "lune",
+        lir: "libre",
+        livrene: "livre",
+        luy: "acheter",
+        lino: "lion",
+        lava: "laver",
+        larmo: "larme",
+        lento: "lent",
+        lumi: "lumière",
+        // M
+        mea: "manger",
+        meno: "mauvais/mauvaise",
+        mera: "mer",
+        meti: "manteau",
+        mie: "mon/ma",
+        mino: "enfant",
+        moto: "voiture",
+        molto: "beaucoup",
+        milo: "mille",
+        mano: "main",
+        monta: "montagne",
+        moro: "mort",
+        // N
+        nera: "neige",
+        nitare: "nature",
+        none: "noir",
+        nomo: "nom",
+        nove: "neuf",
+        noco: "nuit",
+        nido: "nid",
+        // O
+        oro: "or",
+        ovino: "œuf",
+        olo: "olivier",
+        one: "un",
+        // P
+        peno: "stylo",
+        pes: "plus",
+        por: "sinon",
+        portobe: "enceinte",
+        pluvo: "pluie",
+        pinto: "point",
+        puero: "garçon",
+        pleno: "plein",
+        // Q
+        qen: "quand",
+        queno: "question",
+        que: "quoi",
+        // R
+        reci: "panier",
+        reni: "jaune",
+        revor: "au revoir",
+        rego: "roi",
+        rano: "raison",
+        reno: "reine",
+        rivo: "rivière",
+        rapto: "rapide",
+        // S
+        saleclerae: "salle de bain",
+        sera: "souris",
+        sin: "car",
+        sone: "enceinte",
+        sole: "soleil",
+        sano: "santé",
+        silto: "sel",
+        sono: "son",
+        sino: "signe",
+        soyo: "soi",
+        // T
+        terra: "Terre",
+        genesia: "terre",
+        tire: "table",
+        tempo: "temps",
+        tuo: "toi",
+        tino: "tintement",
+        // V
+        ve: "venir",
+        veti: "vert/verte",
+        vero: "vérité",
+        velo: "vélo",
+        vita: "vie",
+        volo: "vouloir",
+        // Z
+        zero: "zéro",
+        zelo: "zèle"
+    };
+
+    // Create a reverse dictionary for French to Trinalian
+    const frenchToTrinal = Object.entries(dictionary).reduce((acc, [key, value]) => {
+        acc[value] = key;
+        return acc;
+    }, {});
+
+    // Tab management
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.tab, .tab-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            tab.classList.add('active');
+            document.getElementById(tab.dataset.tab).classList.add('active');
+        });
+    });
+
+    // Direction button management
+    let currentDirection = 'trinalian-to-french';
+    document.querySelectorAll('.direction-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.direction-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentDirection = btn.dataset.direction;
+        });
+    });
+
+    // Translation function
+    function translateWord(word) {
+        const lowerWord = word.toLowerCase().trim();
+        if (currentDirection === 'trinalian-to-french') {
+            return dictionary[lowerWord] || word;
+        } else {
+            return frenchToTrinal[lowerWord] || word;
+        }
+    }
+
+    // Translation handler
+    document.getElementById('translate-btn').addEventListener('click', () => {
+        const inputText = document.getElementById('input-text').value;
+        const words = inputText.split(' ');
+        const translatedWords = words.map(word => translateWord(word));
+        const translation = translatedWords.join(' ');
+
+        const resultDiv = document.getElementById('translation-result');
+        const translationText = document.getElementById('translation-text');
+
+        translationText.textContent = translation;
+        resultDiv.style.display = 'block';
+    });
+</script>
+</body>
+</html>
