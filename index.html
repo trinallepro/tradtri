@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <script src="https://cdn.counter.dev/script.js" data-id="a9ce5d30-0333-4a93-ae36-dd896192cf62" data-utcoffset="1"></script>
     <meta charset="UTF-8">
     <title>Traducteur Trinalien-Français</title>
     <style>
@@ -202,6 +201,23 @@
             transform: translateY(0);
         }
 
+        .conjugation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .conjugation-table th, .conjugation-table td {
+            border: 1px solid #e2e8f0;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .conjugation-table th {
+            background-color: #f8fafc;
+            font-weight: 600;
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 20px;
@@ -214,7 +230,6 @@
     </style>
 </head>
 <body>
-<!-- Rest of the HTML content remains the same as in your original code -->
 <div class="container">
     <h1>Traducteur Trinalien-Français</h1>
 
@@ -222,6 +237,7 @@
         <div class="tabs">
             <button class="tab active" data-tab="translator">Traducteur</button>
             <button class="tab" data-tab="examples">Exemples</button>
+            <button class="tab" data-tab="conjugations">Conjugaisons</button>
         </div>
 
         <div id="translator" class="tab-content active">
@@ -265,24 +281,613 @@
                 <p>Le bateau vient dans la rivière.</p>
             </div>
         </div>
+
+        <div id="conjugations" class="tab-content">
+            <h2>Conjugaison au Présent</h2>
+
+            <div class="verb-section">
+                <h3>Verbe "e" (être) - Irrégulier</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>en (je suis)</td>
+                        <td>ipne (nous sommes)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>em (tu es)</td>
+                        <td>ione (vous êtes)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>ew (il/elle est)</td>
+                        <td>iene (ils/elles sont)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbes Réguliers - Exemple avec "ve" (venir)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>ven (je viens)</td>
+                        <td>vepne (nous venons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>vem (tu viens)</td>
+                        <td>veione (vous venez)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>vew (il/elle vient)</td>
+                        <td>vene (ils/elles viennent)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbe "a" (avoir)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>an (j'ai)</td>
+                        <td>apne (nous avons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>am (tu as)</td>
+                        <td>aione (vous avez)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>aw (il/elle a)</td>
+                        <td>ane (ils/elles ont)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbe "apto" (apprendre)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>apton (j'apprends)</td>
+                        <td>aptpne (nous apprenons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>aptm (tu apprends)</td>
+                        <td>aptione (vous apprenez)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>aptw (il/elle apprend)</td>
+                        <td>aptne (ils/elles apprennent)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbe "asire" (accepter)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>asirn (j'accepte)</td>
+                        <td>asirpne (nous acceptons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>asirm (tu acceptes)</td>
+                        <td>asirione (vous acceptez)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>asirw (il/elle accepte)</td>
+                        <td>asirne (ils/elles acceptent)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbe "apne" (arriver)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>apnen (j'arrive)</td>
+                        <td>apnepne (nous arrivons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>apnem (tu arrives)</td>
+                        <td>apneione (vous arrivez)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>apnew (il/elle arrive)</td>
+                        <td>apnene (ils/elles arrivent)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbe "fay" (faire)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>fayn (je fais)</td>
+                        <td>faypne (nous faisons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>faym (tu fais)</td>
+                        <td>fayione (vous faites)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>fayw (il/elle fait)</td>
+                        <td>fayne (ils/elles font)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbe "do" (faire)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>don (je fais)</td>
+                        <td>dopne (nous faisons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>dom (tu fais)</td>
+                        <td>doione (vous faites)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>dow (il/elle fait)</td>
+                        <td>done (ils/elles font)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbe "bue" (construire)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>buen (je construis)</td>
+                        <td>buepne (nous construisons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>buem (tu construis)</td>
+                        <td>bueione (vous construisez)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>buew (il/elle construit)</td>
+                        <td>buene (ils/elles construisent)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbe "dire" (dire)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>diren (je dis)</td>
+                        <td>direpne (nous disons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>direm (tu dis)</td>
+                        <td>direione (vous dites)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>direw (il/elle dit)</td>
+                        <td>direne (ils/elles disent)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbe "creo" (créer)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>creon (je crée)</td>
+                        <td>creopne (nous créons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>creom (tu crées)</td>
+                        <td>creoione (vous créez)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>creow (il/elle crée)</td>
+                        <td>creone (ils/elles créent)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbe "delo" (demander)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>delon (je demande)</td>
+                        <td>delopne (nous demandons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>delom (tu demandes)</td>
+                        <td>deloione (vous demandez)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>delow (il/elle demande)</td>
+                        <td>delone (ils/elles demandent)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbe "dalo" (donner)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>dalon (je donne)</td>
+                        <td>dalopne (nous donnons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>dalom (tu donnes)</td>
+                        <td>daloione (vous donnez)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>dalow (il/elle donne)</td>
+                        <td>dalone (ils/elles donnent)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbe "gi" (donner)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>gin (je donne)</td>
+                        <td>gipne (nous donnons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>gim (tu donnes)</td>
+                        <td>gione (vous donnez)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>giw (il/elle donne)</td>
+                        <td>gine (ils/elles donnent)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbe "go" (aller)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>gon (je vais)</td>
+                        <td>gopne (nous allons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>gom (tu vas)</td>
+                        <td>goione (vous allez)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>gow (il/elle va)</td>
+                        <td>gone (ils/elles vont)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbe "brino" (briller)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>brinon (je brille)</td>
+                        <td>brinopne (nous brillons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>brinom (tu brilles)</td>
+                        <td>brinoione (vous brillez)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>brinow (il/elle brille)</td>
+                        <td>brinone (ils/elles brillent)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbe "giro" (tourner)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>giron (je tourne)</td>
+                        <td>girpne (nous tournons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>girm (tu tournes)</td>
+                        <td>girione (vous tournez)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>girw (il/elle tourne)</td>
+                        <td>girne (ils/elles tournent)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbe "espera" (espérer)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>espern (j'espère)</td>
+                        <td>esperpne (nous espérons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>esperm (tu espères)</td>
+                        <td>esperione (vous espérez)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>esperw (il/elle espère)</td>
+                        <td>esperne (ils/elles espèrent)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbe "inno" (entrer)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>innn (j'entre)</td>
+                        <td>innpne (nous entrons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>innm (tu entres)</td>
+                        <td>innione (vous entrez)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>innw (il/elle entre)</td>
+                        <td>innne (ils/elles entrent)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbe "jumpo" (sauter)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>jumpn (je saute)</td>
+                        <td>jumppne (nous sautons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>jumpm (tu sautes)</td>
+                        <td>jumpione (vous sautez)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>jumpw (il/elle saute)</td>
+                        <td>jumpne (ils/elles sautent)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="verb-section">
+                <h3>Verbe "volo" (vouloir)</h3>
+                <table class="conjugation-table">
+                    <tr>
+                        <th>Personne</th>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                    </tr>
+                    <tr>
+                        <td>1ère personne</td>
+                        <td>voln (je veux)</td>
+                        <td>volpne (nous voulons)</td>
+                    </tr>
+                    <tr>
+                        <td>2ème personne</td>
+                        <td>volm (tu veux)</td>
+                        <td>volione (vous voulez)</td>
+                    </tr>
+                    <tr>
+                        <td>3ème personne</td>
+                        <td>volw (il/elle veut)</td>
+                        <td>volne (ils/elles veulent)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="example">
+                <p class="label">Règles de conjugaison régulière :</p>
+                <p><strong>Singulier :</strong></p>
+                <ul>
+                    <li>1ère personne : racine + n</li>
+                    <li>2ème personne : racine + m</li>
+                    <li>3ème personne : racine + w</li>
+                </ul>
+                <p><strong>Pluriel :</strong></p>
+                <ul>
+                    <li>1ère personne : racine + pne</li>
+                    <li>2ème personne : racine + ione</li>
+                    <li>3ème personne : racine + (e)ne</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
 <script>
-    // Your existing JavaScript code remains the same
     const dictionary = {
         // A
         a: "avoir",
+        an: "ai",
+        am: "as",
+        aw: "a",
+        apne: "avons",
+        aione: "avez",
+        ane: "ont",
         aelera: "bonjour",
         ani: "ancêtre",
         anine: "agenda",
         ario: "avion",
         apto: "apprendre",
+        aptn: "apprends",
+        aptm: "apprends",
+        aptw: "apprend",
+        aptpne: "apprenons",
+        aptione: "apprenez",
+        aptne: "apprennent",
         asire: "accepter",
+        asirn: "accepte",
+        asirm: "acceptes",
+        asirw: "accepte",
+        asirpne: "acceptons",
+        asirione: "acceptez",
+        asirne: "acceptent",
         atoro: "après",
         anilo: "animal",
         amo: "amour",
         apne: "arriver",
+        apnen: "arrive",
+        apnem: "arrives",
+        apnew: "arrive",
+        apnepne: "arrivons",
+        apneione: "arrivez",
+        apnene: "arrivent",
         actio: "action",
         // B
         ben: "beau/belle",
@@ -293,11 +898,23 @@
         birdo: "anniversaire",
         bitome: "bouteille",
         bue: "construire",
+        buen: "construis",
+        buem: "construis",
+        buew: "construit",
+        buepne: "construisons",
+        bueione: "construisez",
+        buene: "construisent",
         bo: "grand",
         bore: "bois",
         bilo: "billet",
         bravo: "bravo",
         brino: "briller",
+        brinon: "brille",
+        brinom: "brilles",
+        brinow: "brille",
+        brinopne: "brillons",
+        brinoione: "brillez",
+        brinone: "brillent",
         bloco: "bloc",
         brem: "branche",
         // C
@@ -312,6 +929,12 @@
         comio: "comment",
         cento: "cent",
         creo: "créer",
+        creon: "crée",
+        creom: "crées",
+        creow: "crée",
+        creopne: "créons",
+        creoione: "créez",
+        creone: "créent",
         caldo: "chaud",
         cilo: "ciel",
         cola: "colline",
@@ -319,15 +942,45 @@
         de: "de",
         domo: "maison",
         dalo: "donner",
+        dalon: "donne",
+        dalom: "donnes",
+        dalow: "donne",
+        dalopne: "donnons",
+        daloione: "donnez",
+        dalone: "donnent",
         delo: "demander",
+        delon: "demande",
+        delom: "demandes",
+        delow: "demande",
+        delopne: "demandons",
+        deloione: "demandez",
+        delone: "demandent",
         dire: "dire",
+        diren: "dis",
+        direm: "dis",
+        direw: "dit",
+        direpne: "disons",
+        direione: "dites",
+        direne: "disent",
         do: "faire",
+        don: "fais",
+        dom: "fais",
+        dow: "fait",
+        dopne: "faisons",
+        doione: "faites",
+        done: "font",
         dine: "diner",
         dolce: "doux/douce",
         dro: "droite",
         drono: "dragon",
         // E
         e: "être",
+        en: "suis",
+        em: "es",
+        ew: "est",
+        ipne: "sommes",
+        ione: "êtes",
+        iene: "sont",
         emo: "hommage",
         empiraner: "empire",
         eno: "chocolat",
@@ -337,9 +990,21 @@
         esto: "est",
         etimo: "étoile",
         espera: "espérer",
+        espern: "espère",
+        esperm: "espères",
+        esperw: "espère",
+        esperpne: "espérons",
+        esperione: "espérez",
+        esperne: "espèrent",
         explo: "explosion",
         // F
         fay: "faire",
+        fayn: "fais",
+        faym: "fais",
+        fayw: "fait",
+        faypne: "faisons",
+        fayione: "faites",
+        fayne: "font",
         fi: "feuille",
         fin: "froid",
         firi: "fluo",
@@ -355,15 +1020,33 @@
         generalose: "général",
         genesia: "vie",
         gi: "donner",
+        gin: "donne",
+        gim: "donnes",
+        giw: "donne",
+        gipne: "donnons",
+        gione: "donnez",
+        gine: "donnent",
         gitare: "guitare",
         git: "gentil/gentille",
         go: "aller",
+        gon: "vais",
+        gom: "vas",
+        gow: "va",
+        gopne: "allons",
+        goione: "allez",
+        gone: "vont",
         gran: "adulte",
         gelo: "gel",
         glace: "glace",
         gramo: "gramme",
         greno: "grenouille",
         giro: "tourner",
+        giron: "tourne",
+        girm: "tournes",
+        girw: "tourne",
+        girpne: "tournons",
+        girione: "tournez",
+        girne: "tournent",
         // H
         haisone: "maison",
         holo: "heure",
@@ -375,6 +1058,12 @@
         in: "dans",
         iso: "île",
         inno: "entrer",
+        innn: "entre",
+        innm: "entres",
+        innw: "entre",
+        innpne: "entrons",
+        innione: "entrez",
+        innne: "entrent",
         inoce: "innocence",
         inteno: "intention",
         informo: "information",
@@ -382,6 +1071,12 @@
         jeo: "jeu",
         jero: "rouge",
         jumpo: "sauter",
+        jumpn: "saute",
+        jumpm: "sautes",
+        jumpw: "saute",
+        jumppne: "sautons",
+        jumpione: "sautez",
+        jumpne: "sautent",
         justo: "juste",
         // L
         line: "lune",
@@ -461,19 +1156,33 @@
         tino: "tintement",
         // V
         ve: "venir",
+        ven: "viens",
+        vem: "viens",
+        vew: "vient",
+        vepne: "venons",
+        veione: "venez",
+        vene: "viennent",
         veti: "vert/verte",
         vero: "vérité",
         velo: "vélo",
         vita: "vie",
         volo: "vouloir",
+        voln: "veux",
+        volm: "veux",
+        volw: "veut",
+        volpne: "voulons",
+        volione: "voulez",
+        volne: "veulent",
         // Z
         zero: "zéro",
         zelo: "zèle"
     };
 
+
     // Create a reverse dictionary for French to Trinalian
     const frenchToTrinal = Object.entries(dictionary).reduce((acc, [key, value]) => {
-        acc[value] = key;
+        const baseWord = value.split(' ')[0];
+        acc[baseWord] = key;
         return acc;
     }, {});
 
@@ -522,5 +1231,6 @@
         resultDiv.style.display = 'block';
     });
 </script>
+
 </body>
 </html>
